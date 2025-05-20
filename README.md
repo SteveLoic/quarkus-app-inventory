@@ -1,67 +1,75 @@
 # quarkus-inventory-app
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Inventory API ist eine REST-basierte Backend-Anwendung zur Verwaltung von Lagerbeständen in Unternehmen. Sie ermöglicht die Erfassung, Überwachung und Optimierung von Beständen mit moderner Java-Technologie auf Basis von Quarkus.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+## 🚀 Features
 
-## Running the application in dev mode
+- ✅ Moderne REST-API mit Quarkus RESTEasy Reactive
 
-You can run your application in dev mode that enables live coding using:
+- 📄 Swagger UI & OpenAPI Dokumentation
+
+- 🐳 Vollständig dockerisiert (App & PostgreSQL via Docker Compose)
+
+- ✅ Validierung mit Hibernate Validator
+
+- 🧪 **Integrationstests mit Testcontainers (echte PostgreSQL-Container im Testlauf)**
+
+Docker & Docker Compose
+
+Maven Build
+
+## ✅ Voraussetzungen
+
+Java 17+
+
+Maven (mind. v3.8) – MUSS lokal installiert sein
+
+Docker & Docker Compose
+
+## 🚀 Schnellstart mit Docker Compose
+
+▶️ Starten der App mit einem Bash-Skript
+
+Führe einfach das Skript aus:
 
 ```shell script
+
+./build.sh
+
+```
+
+Dies erledigt:
+
+Maven-Build (mvn package)
+
+Docker Image Build
+
+Start der App + PostgreSQL via docker-compose
+
+⚠️ Hinweis: Maven muss installiert sein, da das Skript den Quarkus-Build lokal ausführt.
+
+## 🌐 Öffne die Web-UI
+
+Sobald die Anwendung läuft, ist die Swagger UI unter folgender Adresse verfügbar:
+
+📎 http://localhost:8080/q/swagger-ui
+
+Dort kannst du alle REST-Endpunkte direkt testen.
+
+## 🧪 Dev-Modus (optional für Entwicklung)
+
+Starte die Anwendung mit Hot Reload im Dev-Modus:
+
+```shell script
+
 ./mvnw quarkus:dev
+
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+Dev UI verfügbar unter: http://localhost:8081/q/dev/
 
-## Packaging and running the application
+## 🌐 Swagger / OpenAPI
 
-The application can be packaged using:
+OpenAPI UI (Swagger) verfügbar unter:
 
-```shell script
-./mvnw package
-```
-
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/quarkus-inventory-app-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-- Hibernate Validator ([guide](https://quarkus.io/guides/validation)): Validate object properties (field, getter) and method parameters for your beans (REST, CDI, Jakarta Persistence)
-
-## Provided Code
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+🔗 http://localhost:8081/q/swagger-ui
